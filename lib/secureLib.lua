@@ -9,16 +9,13 @@ local function genPass(length)
   return password
 end
 
-local function hashFile(file, hashFunction)
+local function hashFile(file)
   if file == nil then os.exit() end
-  if hashFunction == nil then
-    local component = require("component")
-    hashFunction = component.data.md5
-  end
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
-  local hash = hashFunction(file)
+  local component = require("component")
+  local hash = component.data.md5(file)
   return hash
 end
 
