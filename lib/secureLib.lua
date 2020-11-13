@@ -9,5 +9,14 @@ local function genPass(length)
   return password
 end
 
+local function hashFile(file, hashFunction)
+  local file = io.open(file, 'r')
+  local contents = file:read("*all")
+  file:close()
+  local hash = hashFunction(file)
+  return hash
+end
+
 secLib = {}
 secLib.genPass = genPass
+secLib.hashFile = hashFile
