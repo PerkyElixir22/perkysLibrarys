@@ -43,7 +43,7 @@ local function centreText(text, y)
   gpu.set(w/2-#text/2, y, text)
 end
 
-screenLib = {}
-screenLib.rgb = rgb
-screenLib.clearScreen = clearScreen
-screenLib.centreText = centreText
+scrLib = {}
+scrLib.rgb = rgb
+scrLib.clearScreen = clearScreen
+scrLib.centreText = centreText

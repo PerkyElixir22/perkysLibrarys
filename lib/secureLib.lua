@@ -9,5 +9,5 @@ local function generatePassword(length)
   return password
 end
 
-secureLib = {}
-secureLib.generatePassword = generatePassword
+secLib = {}
+secLib.generatePassword = generatePassword
