@@ -40,7 +40,7 @@ local function centreText(text, y)
   if text == nil then text = " " end
   if y == nil then y = 1 end
   if #text > w then text = string.sub(text, 1, w-#text) end
-  gpu.set(w/2-#text/2, text)
+  gpu.set(w/2-#text/2, y, text)
 end
 
 screenLib = {}
