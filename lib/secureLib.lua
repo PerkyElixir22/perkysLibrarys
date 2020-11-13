@@ -1,6 +1,6 @@
 -- A library used for security
 
-local function generatePassword(length)
+local function genPass(length)
   length = tonumber(length)
   if length == nil then length = 0 end
   local password = ""
@@ -10,4 +10,4 @@ local function generatePassword(length)
 end
 
 secLib = {}
-secLib.generatePassword = generatePassword
+secLib.genPass = genPass

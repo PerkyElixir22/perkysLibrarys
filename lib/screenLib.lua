@@ -19,7 +19,7 @@ local function rgb(r, g, b)
   return r+g+b
 end
 
-local function clearScreen(color)
+local function clrScreen(color)
   color = tonumber(color)
   if color == nil then color = 0 end
   if color < 0 then color = 0 end
@@ -32,7 +32,7 @@ local function clearScreen(color)
   gpu.setBackground(temp)
 end
 
-local function centreText(text, y)
+local function cntText(text, y)
   local gpu = require("component").gpu
   local w, h = gpu.getResolution()
   text = tostring(text)
@@ -45,5 +45,5 @@ end
 
 scrLib = {}
 scrLib.rgb = rgb
-scrLib.clearScreen = clearScreen
-scrLib.centreText = centreText
+scrLib.clrScreen = clrScreen
+scrLib.cetText = cntText
