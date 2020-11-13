@@ -26,4 +26,4 @@ end
 
 scrLib = {}
 scrLib.clrScreen = clrScreen
-scrLib.cetText = cntText
+scrLib.cntText = cntText
