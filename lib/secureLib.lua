@@ -9,13 +9,14 @@ local function genPass(length)
   return password
 end
 
-local function hashFile(file)
+local function hashFile(file, hashFunction)
   if file == nil then os.exit() end
   local sha = require("sha2")
+  local component = require("component")
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
-  local hash = sha.sha3_256(contents)
+  local hash = hashFunction(contents)
   return hash
 end
 
