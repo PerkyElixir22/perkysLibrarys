@@ -10,8 +10,6 @@ local function genPass(length)
 end
 
 local function hashFile(file, hashChoice)
-  if file == nil then hashed = "no file specified" end
-  if hashChoice == nil then hashed = "no hash type specified" end
   hashChoice = string.lower(hashChoice)
   local file = io.open(file, 'r')
   local contents = file:read("*all")
