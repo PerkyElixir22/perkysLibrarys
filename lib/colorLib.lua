@@ -14,9 +14,10 @@ local function rgb(r, g, b)
   if g < 0 then g = 0 end
   if b < 0 then b = 0 end
   r = r*65536
-  g = g*255
+  g = g*256
   b = b*1
-  return r+g+b
+  local rgb = r+g+b
+  return rgb
 end
 
 clrLib = {}
