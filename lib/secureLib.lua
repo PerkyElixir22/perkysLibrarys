@@ -10,8 +10,8 @@ local function genPass(length)
 end
 
 local function hashFile(file, hashChoice)
-  if file == nil then os.exit() end
-  if hash == nil then os.exit() end
+  if file == nil then hashed = "no file specified" end
+  if hashChoice == nil then hashed = "no hash type specified" end
   hashChoice = string.lower(hashChoice)
   local file = io.open(file, 'r')
   local contents = file:read("*all")
@@ -42,7 +42,7 @@ local function hashFile(file, hashChoice)
   elseif hashChoice == "sha3_512" then
     hashed = sha.sha3_512(contents)
   else
-    os.exit()
+    hashed = "invalid hash type"
   end
   return hashed
 end
