@@ -1,8 +1,5 @@
 -- A library used for security
 
-local sha = require("sha2")
-local component = require("component")
-
 local function genPass(length)
   length = tonumber(length)
   if length == nil then length = 0 end
@@ -12,12 +9,13 @@ local function genPass(length)
   return password
 end
 
-local function hashFile(file, hashFunction)
+local function hashFile(file)
   if file == nil then os.exit() end
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
-  local hash = hashFunction(contents)
+  local sha = require("sha2")
+  local hash = sha.sha3_256(contents)
   return hash
 end
 
