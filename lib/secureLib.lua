@@ -12,7 +12,7 @@ end
 local function hashFile(file, hashChoice)
   if file == nil then os.exit() end
   if hash == nil then os.exit() end
-  hashChoice = string.lower(hash)
+  hashChoice = string.lower(hashChoice)
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
