@@ -9,14 +9,42 @@ local function genPass(length)
   return password
 end
 
-local function hashFile(file)
+local function hashFile(file, hash)
   if file == nil then os.exit() end
+  if hash == nil then os.exit() end
+  hash = string.lower(hash)
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
   local sha = require("sha2")
-  local hash = sha.sha3_256(contents)
-  return hash
+  if hash == "md5" then
+    hashed = sha.md5(content)
+  elseif hash == "sha1" then
+    hashed = sha.sha1(content)
+  elseif hash == "sha224" then
+    hashed = sha.sha224(content)
+  elseif hash == "sha256" then
+    hashed = sha.sha256(content)
+  elseif hash == "sha384" then
+    hashed = sha.sha384(content)
+  elseif hash == "sha512" then
+    hashed = sha.sha512(content)
+  elseif hash == "sha512_224" then
+    hashed = sha.sha512_224(content)
+  elseif hash == "sha512_256" then
+    hashed = sha.sha512_256(content)
+  elseif hash == "sha3_224" then
+    hashed = sha.sha3_224(content)
+  elseif hash == "sha3_256" then
+    hashed = sha.sha3_256(content)
+  elseif hash == "sha3_384" then
+    hashed = sha.sha3_384(content)
+  elseif hash == "sha3_512" then
+    hashed = sha.sha3_512(content)
+  else
+    os.exit()
+  end
+  return hashed
 end
 
 secLib = {}
