@@ -11,11 +11,11 @@ end
 
 local function hashFile(file)
   if file == nil then os.exit() end
-  local component = require("component")
+  local sha = require("sha2")
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
-  local hash = component.data.md5(contents)
+  local hash = sha.sha3_256(contents)
   return hash
 end
 
