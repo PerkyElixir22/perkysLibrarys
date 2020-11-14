@@ -9,38 +9,38 @@ local function genPass(length)
   return password
 end
 
-local function hashFile(file, hash)
+local function hashFile(file, hashChoice)
   if file == nil then os.exit() end
   if hash == nil then os.exit() end
-  hash = string.lower(hash)
+  hashChoice = string.lower(hash)
   local file = io.open(file, 'r')
   local contents = file:read("*all")
   file:close()
   local sha = require("sha2")
-  if hash == "md5" then
-    hashed = sha.md5(content)
-  elseif hash == "sha1" then
-    hashed = sha.sha1(content)
-  elseif hash == "sha224" then
-    hashed = sha.sha224(content)
-  elseif hash == "sha256" then
-    hashed = sha.sha256(content)
-  elseif hash == "sha384" then
-    hashed = sha.sha384(content)
-  elseif hash == "sha512" then
-    hashed = sha.sha512(content)
-  elseif hash == "sha512_224" then
-    hashed = sha.sha512_224(content)
-  elseif hash == "sha512_256" then
-    hashed = sha.sha512_256(content)
-  elseif hash == "sha3_224" then
-    hashed = sha.sha3_224(content)
-  elseif hash == "sha3_256" then
-    hashed = sha.sha3_256(content)
-  elseif hash == "sha3_384" then
-    hashed = sha.sha3_384(content)
-  elseif hash == "sha3_512" then
-    hashed = sha.sha3_512(content)
+  if hashChoice == "md5" then
+    hashed = sha.md5(contents)
+  elseif hashChoice == "sha1" then
+    hashed = sha.sha1(contents)
+  elseif hashChoice == "sha224" then
+    hashed = sha.sha224(contents)
+  elseif hashChoice == "sha256" then
+    hashed = sha.sha256(contents)
+  elseif hashChoice == "sha384" then
+    hashed = sha.sha384(contents)
+  elseif hashChoice == "sha512" then
+    hashed = sha.sha512(contents)
+  elseif hashChoice == "sha512_224" then
+    hashed = sha.sha512_224(contents)
+  elseif hashChoice == "sha512_256" then
+    hashed = sha.sha512_256(contents)
+  elseif hashChoice == "sha3_224" then
+    hashed = sha.sha3_224(contents)
+  elseif hashChoice == "sha3_256" then
+    hashed = sha.sha3_256(contents)
+  elseif hashChoice == "sha3_384" then
+    hashed = sha.sha3_384(contents)
+  elseif hashChoice == "sha3_512" then
+    hashed = sha.sha3_512(contents)
   else
     os.exit()
   end
