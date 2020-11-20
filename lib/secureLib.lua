@@ -9,6 +9,45 @@ local function genPass(length)
   return password
 end
 
+local function advGenPass(length, check)
+  check = tonumber(check)
+  if check == nil then check = 8 end
+  if check > 64 then check = 64 end
+  if check < 1 then check = 1 end
+  
+  checkBack = check
+    
+  local pass = ""
+  local check = {}
+  for i = 1, checkBack do check[i] = "a" end
+  for i = 1, length do
+    math.randomseed(math.floor(os.clock()*10000000))
+    local new = string.char(math.random(33, 126))
+  
+    local tmp = false
+    while true do
+      for j = 1, checkBack do
+        if new == check[j] then new = string.char(math.random(33, 126)) tmp = false else tmp = true end
+      end
+      if tmp == true then
+        for j = 1, checkBack do
+          if new == check[j] then tmp = false end
+        end
+      end
+      if tmp == true then break end
+    end
+  
+    pass = pass .. new
+  
+    for j = checkBack, 2, -1 do
+      check[j] = check[j-1]
+    end
+    check[1] = new
+  end
+ return pass
+end
+
+
 local function hashFile(file, hashChoice)
   hashChoice = string.lower(hashChoice)
   local file = io.open(file, 'r')
@@ -48,3 +87,4 @@ end
 secLib = {}
 secLib.genPass = genPass
 secLib.hashFile = hashFile
+secLib.advGenPass = advGenPass
